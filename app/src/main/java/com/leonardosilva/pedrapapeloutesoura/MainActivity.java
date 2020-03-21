@@ -4,8 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
+
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
+    ImageView imagemResultado = findViewById(R.id.imageResultado);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +30,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void opcaoSelecionada(String opcao){
+        int numero = new Random().nextInt(3);
+
+        String opcaoes[] = {"pedra", "papel", "tesoura"};
+        String opcaoApp = opcaoes[numero];
+
+        switch (opcaoApp){
+            case "pedra" :
+                imagemResultado.setImageResource(R.drawable.pedra);
+                break;
+            case "papel" :
+                imagemResultado.setImageResource(R.drawable.papel);
+                break;
+            case "tesoura" :
+                imagemResultado.setImageResource(R.drawable.tesoura);
+                break;
+        }
 
     }
 }
